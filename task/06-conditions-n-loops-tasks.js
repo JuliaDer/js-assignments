@@ -32,9 +32,9 @@
 function getFizzBuzz(num) {
     if (num % 3 === 0 && num % 5 === 0) {
         return 'FizzBuzz';
-    } else if (num % 5 === 0) {
+    } if (num % 5 === 0) {
         return 'Buzz';
-    } else if (num % 3 === 0) {
+    } if (num % 3 === 0) {
         return 'Fizz';
     } else return num;
 }
@@ -52,7 +52,7 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    var ans = 1;
+    let ans = 1;
     for (let i = 1; i <= n; i++) {
         ans *= i;
     }
@@ -335,18 +335,18 @@ function isBracketsBalanced(str) {
     str = str.split("");
     let storage = [];
     let open = {
-        '{':'}',
-        '(':')',
-        '[':']',
-        '<':'>'
+        '{' : '}',
+        '(' : ')',
+        '[' : ']',
+        '<' : '>'
     };
     
     for (let i = 0; i < str.length; i++) {
       if (str[i] in open) { 
         storage.push(str[i]);
-      }else { 
+      } else { 
         let recentOpen = storage.pop();
-        if(open[recentOpen] !== str[i]) { 
+        if (open[recentOpen] !== str[i]) { 
           return false;
         }
       }
@@ -387,23 +387,24 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    let time = (endDate - startDate-0.1)/1000;
+    let time = (endDate - startDate - 0.1) / 1000;
     const min = 60;
-    const hour = min*60;
-    const day = hour*24;
-    const month = day*30;
-    const year = day*365;
-    return time<=45?'a few seconds ago':
-        time<=90?'a minute ago':
-            time<=45*min?`${Math.round(time/min)} minutes ago`:
-                time<=90*min?'an hour ago':
-                    time<=22*hour?`${Math.round(time/hour)} hours ago`:
-                        time<=36*hour?'a day ago':
-                            time<=25*day?`${Math.round(time/day)} days ago`:
-                                time<=45*day?'a month ago':
-                                    time<=345*day?`${Math.round(time/month)} months ago`:
-                                        time<=545*day?'a year ago':
-                                            `${Math.round(time/year)} years ago`;
+    const hour = min * 60;
+    const day = hour * 24;
+    const month = day * 30;
+    const year = day * 365;
+    if time <= 45 return 'a few seconds ago';
+    if time <= 90 return 'a minute ago';
+    if time <= 45 * min return `${Math.round(time/min)} minutes ago`;
+    if time <= 90*min return 'an hour ago';
+    if time <= 22 * hour return `${Math.round(time/hour)} hours ago`;
+    if time <= 36 * hour return 'a day ago';
+    if time <= 25 * day return `${Math.round(time/day)} days ago`;
+    if time <= 45 * day return 'a month ago';
+    if time <= 345 * day return `${Math.round(time/month)} months ago`;
+    if time <= 545 * day return 'a year ago';
+    
+    return `${Math.round(time/year)} years ago`;
 }
 
 
