@@ -393,16 +393,16 @@ function timespanToHumanString(startDate, endDate) {
     const day = hour * 24;
     const month = day * 30;
     const year = day * 365;
-    if time <= 45 return 'a few seconds ago';
-    if time <= 90 return 'a minute ago';
-    if time <= 45 * min return `${Math.round(time/min)} minutes ago`;
-    if time <= 90*min return 'an hour ago';
-    if time <= 22 * hour return `${Math.round(time/hour)} hours ago`;
-    if time <= 36 * hour return 'a day ago';
-    if time <= 25 * day return `${Math.round(time/day)} days ago`;
-    if time <= 45 * day return 'a month ago';
-    if time <= 345 * day return `${Math.round(time/month)} months ago`;
-    if time <= 545 * day return 'a year ago';
+    if (time <= 45) return 'a few seconds ago';
+    if (time <= 90) return 'a minute ago';
+    if (time <= 45 * min) return `${Math.round(time/min)} minutes ago`;
+    if (time <= 90 * min) return 'an hour ago';
+    if (time <= 22 * hour) return `${Math.round(time/hour)} hours ago`;
+    if (time <= 36 * hour) return 'a day ago';
+    if (time <= 25 * day) return `${Math.round(time/day)} days ago`;
+    if (time <= 45 * day) return 'a month ago';
+    if (time <= 345 * day) return `${Math.round(time/month)} months ago`;
+    if (time <= 545 * day) return 'a year ago';
     
     return `${Math.round(time/year)} years ago`;
 }
